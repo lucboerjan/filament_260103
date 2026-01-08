@@ -6,9 +6,11 @@ use Filament\Widgets\Widget;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 
-class EindeLoopbaan extends Widget
+class EindeLoopbaanLbj extends Widget
 {
-    protected string $view = 'filament.widgets.einde-loopbaan';
+    protected string $view = 'filament.widgets.einde-loopbaan-lbj';
+    protected static null|int $sort = 1;
+
 
     protected function getViewData(): array
     {
@@ -17,12 +19,9 @@ class EindeLoopbaan extends Widget
         ];
     }
 
-
-
-
     private function berekenWerkdagenTotPensioen()
     {
-        $data = json_decode(File::get(resource_path('data/afwezigheden.json')), true);
+        $data = json_decode(File::get(resource_path('data/afwezigheden_lbj.json')), true);
 
         $feestdagenLijst = $data['feestdagen'];
         $vrijdagenLijst = $data['vrijdagen'];
